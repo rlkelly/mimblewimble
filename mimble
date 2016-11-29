@@ -1,0 +1,5 @@
+MIMBLEWIMBLE
+
+users only need to know when money is entered into
+the system (new money in each block as in Bitcoin or Monero or peg-ins for
+sidechains [6]) and final unspent outputs, the rest can be removed and forgotten.

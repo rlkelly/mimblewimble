@@ -1,0 +1,7 @@
+One Way Aggregate Signature
+
+
+The links between inputs and outputs are obfuscated because using OWAS, multiple transactions can be
+grouped together into a larger transaction such that no links between the inputs and outputs of the original
+transactions remain. The knapsack problem [3] is used for additional anonymity. Our anonymity comes in
+the form of plausible deniability [4] (“you may have done it but we cannot be sure”).

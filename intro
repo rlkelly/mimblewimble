@@ -1,0 +1,65 @@
+What is hashing?
+What is bitcoin?
+
+What are blocks/blockchain?
+What is difficulty?
+
+Deanonymization is a field, netflix challenge
+right now it's like a checkbook
+build a transaction and sign with your secret key by hashing the message
+
+
+
+COINJOIN is one solution:
+
+
+Committment Scheme
+==================
+commitment = SHA256( blinding_factor || data )
+Prevents `Nosterdamus Attack`
+
+
+Pedersen Commitment
+===================
+C(BF1, data1) + C(BF2, data2) == C(BF1 + BF2, data1 + data2)
+C(BF1, data1) - C(BF1, data1) == 0
+
+If data_n = {1,1,2} and BF_n = {5,10,15} then:
+C(BF1, data1) + C(BF2, data2) - C(BF3, data3) == 0
+C(5,1)  +  C(10, 1) - C(15, 2) == 0
+
+
+Elliptic Curve Cryptography
+===========================
+Public Key = xG (G is a generator)
+Pub1 + Pub2 = (x1 + x2 (mod n))G.
+
+H = to_point(SHA256(ENCODE(G)))  ( y value of cryptographic hash of G)
+
+NOW: commitment = xG + aH
+
+x is secret blinding factor
+a is the amount we're committing to
+
+NOW.... (In1 + In2 + In3 + plaintext_input_amount*H...) - (Out1 + Out2 + Out3 + ... fees*H) == 0.
+
+
+ISSUES:
+The group is cyclic: (1 + 1) - (-5 + 7) == 0
+  - solution: each output in appropriate range
+
+Schoenmakers’ binary decomposition to prove range
+uses Ring Signature
+
+A ring signature is a signature scheme where there are two (or more) pubkeys and the signature proves that the signer knows the discrete log of at least one of the pubkeys.
+
+C1 is 0 or 1 C2 is 0 or 2 C3 is 0 or 4 C4 is 0 or 8 C5 is 0 or 16.
+
+
+
+
+
+
+WHAT'S THE REAL PROBLEM:  TOO MUCH DATA!
+
+COINJOIN requires interactivity
